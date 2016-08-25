@@ -16,8 +16,9 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
-app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 80);
+var port = process.env.OPENSHIFT_NODEJS_PORT || 80;
+var ip = process.env.OPENSHIFT_NODEJS_IP;
+app.set('port', port );
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -63,8 +64,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen( () =>
-  console.log( 'Running' )
+app.listen( port, ip, () =>
+  console.log( 'Running on IP:' + ip + ' PORT:' + port  )
 );
 
 module.exports = app;
