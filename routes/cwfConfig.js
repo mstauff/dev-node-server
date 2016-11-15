@@ -3,10 +3,22 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+    var environmentParm = req.param('env');
+    var isTestEnv = environmentParm && environmentParm.toLowerCase() == 'test';
+    var baseUrl = isTestEnv ? 'https://test.lds.org/' : 'https://www.lds.org/';
+    var baseSigninUrl = isTestEnv ? 'https://signin-int.lds.org/' : 'https://signin.lds.org/';
     res.send({
         statuses: ['proposed', 'approved', 'accepted', 'declined', 'sustained', 'setApart'],
-        ldsEndpointUrls: [{MEMBER_LIST: '/directory/list'}, {CALLING_LIST: '/directory/callings'}],
-        orgTypes: [{id: 5, name: 'Bishopric'}, {id: 7, name: 'High Priests Group'}, {id: 9, name:'Primary'}, {id: 11, name:'Relief Society'}]
+        ldsEndpointUrls: [{USER_DATA: baseUrl + 'mobiledirectory/services/v2/ldstools/current-user-detail'},
+            {SIGN_IN: baseSigninUrl + 'login.html'},
+            {SIGN_OUT: baseUrl + 'signinout/?lang=eng&signmeout'},
+            {MEMBER_LIST: baseUrl + 'mobiledirectory/services/ludrs/1.1/mem/mobile/member-detaillist/:unitNum'},
+            {CALLING_LIST: baseUrl + 'mls/mbr/services/orgs/sub-orgs-with-callings'},
+        ],
+        orgTypes: [{id: 1179, name: 'Bishopric'}, {id: 69, name: 'High Priests Group'}, {id: 70, name:'Elders Quorum'},
+            {id: 74, name:'Relief Society'}, {id: 73, name:'Young Men'}, {id: 76, name:'Young Women'},
+            {id: 75, name:'Sunday School'},{id: 77, name:'Primary'},{id: 1310, name:'Ward Missionaries'},
+            {id: 1185, name:'Other Callings'}]
     });
 });
 

@@ -16,8 +16,8 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-var port = process.env.OPENSHIFT_NODEJS_PORT || 80;
-var ip = process.env.OPENSHIFT_NODEJS_IP;
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var ip = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 app.set('port', port );
 
 // uncomment after placing your favicon in /public
