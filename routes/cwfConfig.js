@@ -14,6 +14,7 @@ router.get('/', function (req, res, next) {
             {SIGN_IN: baseSigninUrl + 'login.html'},
             {SIGN_OUT: baseUrl + 'signinout/?lang=eng&signmeout'},
             {MEMBER_LIST: baseUrl + baseDirectoryInstance + 'services/ludrs/1.1/mem/mobile/member-detaillist/:unitNum'},
+            {UPDATE_CALLING: baseUrl + 'mls/mbr/services/orgs/callings'},
             {CALLING_LIST: baseUrl + 'mls/mbr/services/orgs/sub-orgs-with-callings'},
         ],
         orgTypes: [{id: 1179, name: 'Bishopric'}, {id: 69, name: 'High Priests Group'}, {id: 70, name:'Elders Quorum'},
