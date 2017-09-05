@@ -16,7 +16,7 @@ router.get('/', function (req, res, next) {
             MEMBER_LIST: baseUrl + 'htvt/services/v1/:unitNum/members',
             MEMBER_LIST_SECONDARY: baseUrl + baseDirectoryInstance + 'services/ludrs/1.1/mem/mobile/member-detaillist/:unitNum',
             // MEMBER_LIST: baseUrl + baseDirectoryInstance + 'services/v2/ldstools/member-detaillist-with-callings/56030',
-            UPDATE_CALLING: baseUrl + 'mls/mbr/services/orgs/callings',
+            UPDATE_CALLING: baseUrl + 'mls/mbr/services/orgs/callings?lang=eng',
             CALLING_LIST: baseUrl + 'mls/mbr/services/orgs/sub-orgs-with-callings'},
         orgTypes: [{id: 1179, name: 'Bishopric'}, {id: 69, name: 'High Priests Group'}, {id: 70, name:'Elders Quorum'},
             {id: 74, name:'Relief Society'}, {id: 73, name:'Young Men'}, {id: 76, name:'Young Women'},
