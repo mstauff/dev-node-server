@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
     var environmentParm = req.query.env && req.query.env.toLowerCase();
     var isTestEnv = environmentParm && (environmentParm === 'test' || environmentParm === 'dev' || environmentParm === 'stage');
     var baseUrl = isTestEnv ? 'https://' + environmentParm + '.lds.org/' : 'https://www.lds.org/';
-    var baseSigninUrl = isTestEnv ? 'https://signin-int.lds.org/' : 'https://signin.lds.org/';
+    var baseSigninUrl = isTestEnv ? 'https://ident-int.lds.org/' : 'https://ident.lds.org/';
     var baseDirectoryInstance = isTestEnv ? 'directory/' : 'mobiledirectory/';
     res.send({
         statuses: ['proposed', 'approved', 'accepted', 'declined', 'sustained', 'setApart'],
