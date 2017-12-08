@@ -4,12 +4,18 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function (req, res, next) {
     var environmentParm = req.query.env && req.query.env.toLowerCase();
+    var signinParm = req.query.signIn && req.query.signIn.toLowerCase();
     var isTestEnv = environmentParm && (environmentParm === 'test' || environmentParm === 'dev' || environmentParm === 'stage');
     var baseUrl = isTestEnv ? 'https://' + environmentParm + '.lds.org/' : 'https://www.lds.org/';
     var baseSigninUrl = isTestEnv ? 'https://ident-int.lds.org/' : 'https://ident.lds.org/';
+    // we've some switches in dev between signin-int.lds.org and ident-int.lds.org, seemingly  randomly. So we're adding
+    // it as an optional parameter so we don't have to deploy a new version of the app with a change to the baseSigninUrl
+    // everytime the church changes something.
+    if( signinParm ){
+        baseSigninUrl = 'https://' + signinParm + '.lds.org/';
+    }
     var baseDirectoryInstance = isTestEnv ? 'directory/' : 'mobiledirectory/';
     res.send({
-        statuses: ['proposed', 'approved', 'accepted', 'declined', 'sustained', 'setApart'],
         ldsEndpointUrls: {USER_DATA: baseUrl + baseDirectoryInstance + 'services/v2/ldstools/current-user-detail',
             SIGN_IN: baseSigninUrl + 'login.html',
             SIGN_OUT: baseUrl + 'signinout/?lang=eng&signmeout',
