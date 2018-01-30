@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
     var signinParm = req.query.signIn && req.query.signIn.toLowerCase();
     var isTestEnv = environmentParm && (environmentParm === 'test' || environmentParm === 'dev' || environmentParm === 'stage');
     var baseUrl = isTestEnv ? 'https://' + environmentParm + '.lds.org/' : 'https://www.lds.org/';
-    var baseSigninUrl = isTestEnv ? 'https://ident-int.lds.org/' : 'https://ident.lds.org/';
+    var baseSigninUrl = isTestEnv ? 'https://signin-int.lds.org/' : 'https://signin.lds.org/';
     // we've some switches in dev between signin-int.lds.org and ident-int.lds.org, seemingly  randomly. So we're adding
     // it as an optional parameter so we don't have to deploy a new version of the app with a change to the baseSigninUrl
     // everytime the church changes something.
