@@ -23,7 +23,7 @@ router.get('/', function (req, res, next) {
             MEMBER_LIST_SECONDARY: baseUrl + baseDirectoryInstance + 'services/ludrs/1.1/mem/mobile/member-detaillist/:unitNum',
             // MEMBER_LIST: baseUrl + baseDirectoryInstance + 'services/v2/ldstools/member-detaillist-with-callings/56030',
             UPDATE_CALLING: baseUrl + 'mls/mbr/services/orgs/callings?lang=eng',
-            CALLING_LIST: baseUrl + 'mls/mbr/services/orgs/sub-orgs-with-callings'
+            CALLING_LIST: baseUrl + 'mls/mbr/services/orgs/sub-orgs-with-callings',
             CLASS_ASSIGNMENTS: baseUrl + 'mls/mbr/services/orgs/sub-orgs-with-callings/?subOrgId=:subOrgId'
         },
         orgTypes: [{id: 1179, name: 'Bishopric'}, {id: 69, name: 'High Priests Group'}, {id: 70, name:'Elders Quorum'},
