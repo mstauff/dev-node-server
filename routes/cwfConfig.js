@@ -20,6 +20,8 @@ router.get('/', function (req, res, next) {
             SIGN_IN: baseSigninUrl + 'login.html',
             SIGN_OUT: baseUrl + 'signinout/?lang=eng&signmeout',
             MEMBER_LIST: baseUrl + 'htvt/services/v1/:unitNum/members',
+            INDIVIDUAL_MEMBERS_LIST: baseUrl + 'mls/mbr//services/umlu/report/member-list?unitNumber=:unitNum',
+
             MEMBER_LIST_SECONDARY: baseUrl + baseDirectoryInstance + 'services/ludrs/1.1/mem/mobile/member-detaillist/:unitNum',
             // MEMBER_LIST: baseUrl + baseDirectoryInstance + 'services/v2/ldstools/member-detaillist-with-callings/56030',
             UPDATE_CALLING: baseUrl + 'mls/mbr/services/orgs/callings?lang=eng',
