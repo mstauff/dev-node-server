@@ -16,10 +16,10 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-var ip = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+var port = process.env.PORT || 8080;
+// var ip = process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 app.set('port', port );
-app.set( 'ip', ip );
+// app.set( 'ip', ip );
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -65,11 +65,11 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(port, ip, () => {
-    var bind = typeof addr === 'string'
-        ? 'pipe ' + ip
-        : 'port ' + port;
-    console.log('Listening on ' + bind);
+app.listen(port, () => {
+    // var bind = typeof addr === 'string'
+    //     ? 'pipe ' + ip
+    //     : 'port ' + port;
+    console.log('Listening on ' + port);
 
 });
 
