@@ -38,4 +38,3 @@ router.get('/', function (req, res, next) {
 });
 
 module.exports = router;
-https://stage.churchofjesuschrist.org/mobiledirectory/services/v2/ldstools/current-user-detail
