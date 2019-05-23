@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
     if( signinParm ){
         baseSigninUrl = 'https://' + signinParm + '.lds.org/';
     }
-    var baseDirectoryInstance = isTestEnv ? 'directory/' : 'mobiledirectory/';
+    var baseDirectoryInstance = 'mobiledirectory/';
     res.send({
         ldsEndpointUrls: {USER_DATA: baseUrl + baseDirectoryInstance + 'services/v2/ldstools/current-user-detail',
             SIGN_IN: baseSigninUrl + 'login.html',
@@ -38,3 +38,4 @@ router.get('/', function (req, res, next) {
 });
 
 module.exports = router;
+https://stage.churchofjesuschrist.org/mobiledirectory/services/v2/ldstools/current-user-detail
