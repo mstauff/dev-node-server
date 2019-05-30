@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
     var environmentParm = req.query.env && req.query.env.toLowerCase();
     var signinParm = req.query.signIn && req.query.signIn.toLowerCase();
     var isTestEnv = environmentParm && (environmentParm === 'test' || environmentParm === 'dev' || environmentParm === 'stage');
-    var baseUrl = isTestEnv ? 'https://' + environmentParm + '.lds.org/' : 'https://www.lds.org/';
+    var baseUrl = isTestEnv ? 'https://' + environmentParm + '.churchofjesuschrist.org/' : 'https://www.lds.org/';
     var baseLcrUrl = isTestEnv ? 'https://lcr-' + environmentParm + '.lds.org/' : 'https://lcr.lds.org/';
     var baseSigninUrl = isTestEnv ? 'https://signin-int.lds.org/' : 'https://signin.lds.org/';
     // we've some switches in dev between signin-int.lds.org and ident-int.lds.org, seemingly  randomly. So we're adding
@@ -30,6 +30,10 @@ router.get('/', function (req, res, next) {
             UNIT_CALLINGS: baseLcrUrl + 'services/report/members-with-callings?unitNumber=:unitNum',
             CLASS_ASSIGNMENTS: baseLcrUrl + 'services/orgs/sub-orgs-with-callings/?subOrgId=:subOrgId'
         },
+        // ldsBasicAuth: [],
+        ldsBasicAuth: ['USER_DATA'],
+        ldsHeaders: {},
+        // ldsHeaders: {USER_DATA : {lds_api_key : '150502025'}},
         orgTypes: [{id: 1179, name: 'Bishopric'},  {id: 70, name:'Elders Quorum'},
             {id: 74, name:'Relief Society'}, {id: 73, name:'Young Men'}, {id: 76, name:'Young Women'},
             {id: 75, name:'Sunday School'},{id: 77, name:'Primary'},{id: 1310, name:'Ward Missionaries'},
