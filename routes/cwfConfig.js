@@ -3,12 +3,13 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+    let cojcOrg = '.churchofjesuschrist.org/';
     var environmentParm = req.query.env && req.query.env.toLowerCase();
     var signinParm = req.query.signIn && req.query.signIn.toLowerCase();
     var isTestEnv = environmentParm && (environmentParm === 'test' || environmentParm === 'dev' || environmentParm === 'stage');
-    var baseUrl = isTestEnv ? 'https://' + environmentParm + '.churchofjesuschrist.org/' : 'https://www.lds.org/';
+    var baseUrl = isTestEnv ? 'https://' + environmentParm + cojcOrg : 'https://www.lds.org/';
     var baseLcrUrl = isTestEnv ? 'https://lcr-' + environmentParm + '.lds.org/' : 'https://lcr.lds.org/';
-    var baseSigninUrl = isTestEnv ? 'https://signin-int.lds.org/' : 'https://signin.lds.org/';
+    var baseSigninUrl = isTestEnv ? 'https://signin-int' + cojcOrg : 'https://signin.lds.org/';
 
     let STATUS_OK = 'OK';
     let STATUS_WARN = 'WARN';
