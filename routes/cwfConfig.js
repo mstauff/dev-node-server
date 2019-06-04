@@ -33,7 +33,7 @@ router.get('/', function (req, res, next) {
     // it as an optional parameter so we don't have to deploy a new version of the app with a change to the baseSigninUrl
     // everytime the church changes something.
     if( signinParm ){
-        baseSigninUrl = 'https://' + signinParm + '.lds.org/';
+        baseSigninUrl = 'https://' + signinParm + cojcOrg;
     }
     var baseDirectoryInstance = isTestEnv ? 'directory/' : 'mobiledirectory/';
     res.send({
