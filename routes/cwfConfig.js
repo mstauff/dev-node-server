@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
     var baseUrl = isTestEnv ? 'https://' + environmentParm + cojcOrg : 'https://www' + cojcOrg;
     var baseUserUrl = 'https://ws-mobile' +  cojcOrg;
     var baseLcrUrl = isTestEnv ? 'https://lcr-' + environmentParm +  cojcOrg : 'https://lcr' + cojcOrg;
-    var baseSigninUrl = isTestEnv ? 'https://signin-int' + cojcOrg : 'https://signin' + cojcOrg;
+    var baseSigninUrl = isTestEnv ? 'https://signin-int' + cojcOrg : 'https://mobileauth' + cojcOrg;
 
     let STATUS_OK = 'OK';
     let STATUS_WARN = 'WARN';
