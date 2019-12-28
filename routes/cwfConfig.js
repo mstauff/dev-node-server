@@ -8,6 +8,7 @@ router.get('/', function (req, res, next) {
     var signinParm = req.query.signIn && req.query.signIn.toLowerCase();
     var isTestEnv = environmentParm && (environmentParm === 'test' || environmentParm === 'dev' || environmentParm === 'stage');
     var baseUrl = isTestEnv ? 'https://' + environmentParm + cojcOrg : 'https://www' + cojcOrg;
+    var baseUserUrl = 'https://ws-mobile' +  cojcOrg;
     var baseLcrUrl = isTestEnv ? 'https://lcr-' + environmentParm +  cojcOrg : 'https://lcr' + cojcOrg;
     var baseSigninUrl = isTestEnv ? 'https://signin-int' + cojcOrg : 'https://signin' + cojcOrg;
 
@@ -37,7 +38,7 @@ router.get('/', function (req, res, next) {
     }
     var baseDirectoryInstance = isTestEnv ? 'directory/' : 'mobiledirectory/';
     res.send({
-        ldsEndpointUrls: {USER_DATA: baseUrl + baseDirectoryInstance + 'services/v2/ldstools/current-user-detail',
+        ldsEndpointUrls: {USER_DATA: baseUserUrl + baseDirectoryInstance + 'services/v3.0/ldstools/current-user-detail',
         // ldsEndpointUrls: {USER_DATA: 'https://www.churchofjesuschrist.org/mobiledirectory/services/v2/ldstools/current-user-detail',
             SIGN_IN: baseSigninUrl + 'login.html',
             SIGN_OUT: baseUrl + 'signinout/?lang=eng&signmeout',
