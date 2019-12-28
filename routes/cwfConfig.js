@@ -38,7 +38,7 @@ router.get('/', function (req, res, next) {
     }
     var baseDirectoryInstance = isTestEnv ? 'directory/' : 'mobiledirectory/';
     res.send({
-        ldsEndpointUrls: {USER_DATA: baseUserUrl + baseDirectoryInstance + 'services/v3.0/ldstools/current-user-detail',
+        ldsEndpointUrls: {USER_DATA: baseUserUrl + baseDirectoryInstance + 'services/mobile/v3.0/ldstools/current-user-detail',
         // ldsEndpointUrls: {USER_DATA: 'https://www.churchofjesuschrist.org/mobiledirectory/services/v2/ldstools/current-user-detail',
             SIGN_IN: baseSigninUrl + 'login.html',
             SIGN_OUT: baseUrl + 'signinout/?lang=eng&signmeout',
